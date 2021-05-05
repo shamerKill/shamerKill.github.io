@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Ts学习记录2"><meta name="keywords" content="typescript,js,es6"><meta name="author" content="shamer,undefined"><meta name="copyright" content="shamer"><meta name="baidu-site-verification" content="wQmKy4LW3t"><title>Ts学习记录2-Shamer's blog</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/favicon.ico"><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script><meta name="generator" content="Hexo 5.4.0"></head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">基础类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B-%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">复合类型&#x2F;引用类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TS%E6%96%B0%E5%A2%9E%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">TS新增类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80"><span class="toc-number">1.4.</span> <span class="toc-text">类型断言</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.jpg"></div><div class="author-info-name">shamer</div><div class="author-info-description">我是一个爱学习的好骚年</div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">11</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">10</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">3</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Shamer's blog</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">Ts学习记录2</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-03-10 | 更新于 2021-05-05</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E5%85%AC%E5%8F%B8%E6%95%99%E7%A8%8B/">公司教程</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/typescript/">typescript</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/js/">js</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/es6/">es6</a></div></div></div><div class="main-content"><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><p>TypeScript作为js的超集，具有js的一切变量类型，并另外增加了部分类型</p>
+<h3 id="基础类型"><a href="#基础类型" class="headerlink" title="基础类型"></a>基础类型</h3><p>ts的基础类型和js的基础类型一致，这些类型变量在复制时是内存复制，开辟新的内存地址进行存储</p>
+<ul>
+<li>数字 <ul>
+<li>number (声明方式，下同)</li>
+<li>Number</li>
+</ul>
+</li>
+<li>布尔<ul>
+<li>boolean</li>
+<li>Boolean</li>
+</ul>
+</li>
+<li>字符串<ul>
+<li>string</li>
+<li>String</li>
+</ul>
+</li>
+<li>定义但没有值<ul>
+<li>null</li>
+</ul>
+</li>
+<li>未定义<ul>
+<li>undefined</li>
+</ul>
+</li>
+</ul>
+<h3 id="复合类型-引用类型"><a href="#复合类型-引用类型" class="headerlink" title="复合类型/引用类型"></a>复合类型/引用类型</h3><p>引用类型变量在复制(非深拷贝)时是内存指针复制，不开辟新的内存地址，只是复制内存地址指针</p>
+<ul>
+<li>对象<ul>
+<li>object</li>
+<li>Object</li>
+<li>{}</li>
+</ul>
+</li>
+<li>数组<ul>
+<li>Array<T></li>
+<li>T[]</li>
+<li><blockquote>
+<p>可以理解为键值为连续数字的对象</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="TS新增类型"><a href="#TS新增类型" class="headerlink" title="TS新增类型"></a>TS新增类型</h3><p>新增类型在js里没有对应的类型，是ts为了增强js而增加的类型</p>
+<ul>
+<li>任意值 <ul>
+<li>any</li>
+<li><blockquote>
+<p>这个类型代表了任何类型值(除never外)，ts编译器编译时不会进行类型检查，同样的将不具备任何代码提示，在不知道变量类型的时候使用，不推荐</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>空值或未定义值<ul>
+<li>void</li>
+<li><blockquote>
+<p>这个类型相当于是undefined | null的联合类型，通常是无返回值的函数的返回值定义类型  eg: (): void =&gt; {}</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>异常或永不存在的值<ul>
+<li>never</li>
+<li><blockquote>
+<p>这个类型的是为了规定无效的函数返回值，或永不为真的变量。never是任何类型的子类，意思是任何类型的变量都可以等于返回值为never类型的函数，但是任何类型都不可赋值给never</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例子</span></span><br><span class="line"><span class="keyword">let</span> c = (): <span class="function"><span class="params">never</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a: <span class="built_in">number</span> = c();</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</li>
+<li>元组<ul>
+<li>[T, U, K]</li>
+<li><blockquote>
+<p>元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。当通过已知索引去获取元素的时候，会得到当前索引对应的类型，当通过超出已知索引的越界索引获取元素的时候，会得到当前元组内所有类型的联合类型</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a: [<span class="built_in">string</span>, <span class="built_in">number</span>]; <span class="comment">// 此时越界元素的联合类型为 string | number</span></span><br><span class="line">a = [<span class="string">&#x27;1&#x27;</span>, <span class="number">1</span>]; <span class="comment">// 成功编译，因为和已知索引的类型对应</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">1</span>]; <span class="comment">// 编译失败，因为和已知索引的类型不一致</span></span><br><span class="line">a = [<span class="string">&#x27;1&#x27;</span>, <span class="number">1</span>, <span class="number">1</span>]; <span class="comment">// 编译失败，和已知索引类型不一致</span></span><br><span class="line">a[<span class="number">4</span>] = <span class="number">1</span>; <span class="comment">// 编译成功，通过越界索引获取元组类型，是符合联合类型</span></span><br><span class="line">a[<span class="number">4</span>] = <span class="literal">true</span>; <span class="comment">// 编译失败，联合类型中没有boolean</span></span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+</li>
+<li>枚举<ul>
+<li>enum</li>
+<li><blockquote>
+<p>枚举是一种数据映射</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h3><p>通过类型断言这种方式可以告诉编译器，“相信我，我知道自己在干什么”。 类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。 它没有运行时的影响，只是在编译阶段起作用。 TypeScript会假设你，程序员，已经进行了必须的检查。</p>
+<blockquote>
+<p>因为在大部分js是基于浏览器运行的脚本语言，所以有时候通过获取元素的时候返回值可能是null，这个时候你要通过类型断言告诉编译器，我相信自己<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 尖括号语法，vue中有时会报错，不推荐在vue-cli创建的项目中使用</span></span><br><span class="line"><span class="comment">// (官方解释:当你在TypeScript里使用JSX时，只有 as语法断言是被允许的。)</span></span><br><span class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">&quot;this is a string&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (&lt;<span class="built_in">string</span>&gt;someValue).length;</span><br><span class="line"><span class="comment">// as语法</span></span><br><span class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">&quot;this is a string&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (someValue <span class="keyword">as</span> <span class="built_in">string</span>).length;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">shamer</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://shamerkill.github.io/article/92c4c2a2.html">https://shamerkill.github.io/article/92c4c2a2.html</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://shamerKill.github.io">Shamer's blog</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/article/e5c3f234.html"><i class="fas fa-angle-left">&nbsp;</i><span>Ts学习记录3</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/article/bcd9318.html"><span>Ts学习记录1</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2019 ～ 2021 By shamer</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>

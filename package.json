@@ -8,7 +8,7 @@
   "scripts": {
     "hexo": "hexo",
     "create": "hexo new",
-    "server": "hexo server --port 6666",
+    "server": "hexo server --port 6060",
     "build": "hexo generate"
   },
   "dependencies": {

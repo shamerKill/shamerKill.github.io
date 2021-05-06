@@ -17,7 +17,7 @@ function main() {
       if (item[0] === 'A') return item[1];
       if (item[0] === 'M' || item[0] === 'MM') return item[1];
       console.log(item);
-    }))
+    })
     .map(item => path.join(__dirname, '../', item))
     .filter(item => fs.statSync(item).isFile());
   // 对图片进行压缩

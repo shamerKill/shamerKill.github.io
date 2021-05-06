@@ -1,5 +1,6 @@
 ---
 title: docker学习笔记-Dockerfile
+categories: 笔记
 tags:
   - docker
 abbrlink: b7297d0a

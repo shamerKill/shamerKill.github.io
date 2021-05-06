@@ -1,5 +1,6 @@
 ---
 title: github markdown表情
+categories: git
 tags:
   - github
   - markdown

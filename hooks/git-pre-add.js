@@ -10,7 +10,14 @@ function main() {
     .toString()
     .trim()
     .split('\n')
-    .map(item => item.split(/\s+/).filter(str => str.replace(/\s+/))[1])
+    .map(item => item.split(/\s+/))
+    .filter(item => (item[0] !== '??' && item[0] !== 'D'))
+    .map(item => {
+      if (item[0] === 'R') return item[3];
+      if (item[0] === 'A') return item[1];
+      if (item[0] === 'M' || item[0] === 'MM') return item[1];
+      console.log(item);
+    }))
     .map(item => path.join(__dirname, '../', item))
     .filter(item => fs.statSync(item).isFile());
   // 对图片进行压缩
@@ -23,7 +30,7 @@ function main() {
     const resultData = file.replace(/(?<=\!\[.*?\])\((?!http|https)(.*?)\)/g, '(https://raw.githubusercontent.com/shamerKill/shamerKill.github.io/master/$1)');
     fs.writeFileSync(filePath, resultData, 'utf8');
   })
-  // execSync(`git add ${gitMdCheckStatus.join(' ')}`);
+  execSync(`git add ${gitMdCheckStatus.join(' ')}`);
 }
 
 try {

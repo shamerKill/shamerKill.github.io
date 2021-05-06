@@ -30,7 +30,7 @@ function main() {
     const resultData = file.replace(/(?<=\!\[.*?\])\((?!http|https)(.*?)\)/g, '(https://raw.githubusercontent.com/shamerKill/shamerKill.github.io/master/$1)');
     fs.writeFileSync(filePath, resultData, 'utf8');
   })
-  execSync(`git add ${gitMdCheckStatus.join(' ')}`);
+  if (gitMdCheckStatus.length) execSync(`git add ${gitMdCheckStatus.join(' ')}`);
 }
 
 try {

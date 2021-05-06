@@ -9,7 +9,8 @@
     "hexo": "hexo",
     "create": "hexo new",
     "server": "hexo server --port 6060",
-    "build": "hexo generate"
+    "build": "hexo generate",
+    "gitAdd": "node ./hooks/git-pre-add.js"
   },
   "dependencies": {
     "hexo": "^5.4.0",
